@@ -192,7 +192,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
           className="rounded-lg border border-border bg-card p-5 space-y-3"
         >
           <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
-            PASO 3: Calcular el COSTO HUNDIDO (Material ya comprado — pérdida inevitable)
+            PASO 3: ¿CUÁNTO DINERO PERDIÓ LA EMPRESA? (Calcula el 'Costo Hundido' de los Materiales que ya se compraron)
           </label>
           <input
             type="text"
