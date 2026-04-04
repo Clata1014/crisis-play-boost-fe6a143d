@@ -5,8 +5,9 @@ import Briefing from "./Briefing";
 import ControlPanel from "./ControlPanel";
 import Debriefing from "./Debriefing";
 import Punto2 from "./Punto2";
+import Punto3 from "./Punto3";
 
-type Phase = "lobby" | "briefing" | "control" | "debrief" | "punto2";
+type Phase = "lobby" | "briefing" | "control" | "debrief" | "punto2" | "punto3";
 
 const SimuladorIndustrial = () => {
   const [phase, setPhase] = useState<Phase>("lobby");
