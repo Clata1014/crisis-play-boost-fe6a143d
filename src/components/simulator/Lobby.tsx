@@ -3,7 +3,6 @@ import { Phone } from "lucide-react";
 
 interface LobbyProps {
   onStart: () => void;
-  onStartPunto3?: () => void;
 }
 
 const Lobby = ({ onStart, onStartPunto3 }: LobbyProps) => {
