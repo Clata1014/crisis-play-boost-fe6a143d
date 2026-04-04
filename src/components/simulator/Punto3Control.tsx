@@ -239,13 +239,37 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
           )}
         </motion.div>
 
+        {/* Input 5 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          className="rounded-lg border border-border bg-card p-5 space-y-3"
+        >
+          <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
+            PASO 5: LA PRUEBA MATEMÁTICA (SUMA EL COSTO HUNDIDO MÁS EL AHORRO REAL)
+          </label>
+          <input
+            type="text"
+            value={input5}
+            onChange={(e) => setInput5(e.target.value)}
+            placeholder="Escribe tu fórmula aquí..."
+            className="w-full bg-background border border-border p-3 rounded text-foreground font-mono focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
+          />
+          {renderFeedback(result5, 224000000,
+            <p className="text-emerald-400 text-xl font-black mt-2 bg-emerald-950/40 p-2 rounded inline-block border border-emerald-800">
+              ✅ = $ 224.000.000 (¡Balance Perfecto!)
+            </p>
+          )}
+        </motion.div>
+
         {/* Submit */}
         <motion.button
           type="button"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={handleCheck}
-          disabled={!input1.trim() || !input2.trim() || !input3.trim() || !input4.trim()}
+          disabled={!input1.trim() || !input2.trim() || !input3.trim() || !input4.trim() || !input5.trim()}
           className="w-full rounded border-2 border-crisis-green bg-crisis-green/10 px-8 py-4 font-orbitron text-sm font-bold text-crisis-green transition hover:bg-crisis-green/20 disabled:opacity-30 disabled:cursor-not-allowed"
         >
           ⚡ COMPROBAR EFECTO ZARA
