@@ -76,6 +76,26 @@ const Punto3Debrief = ({ onBack, onRetry }: Punto3DebriefProps) => {
             <Sparkles className="h-4 w-4 text-amber-400" />
           </div>
 
+          <div className="mt-8 mb-8 bg-slate-900 border border-slate-700 rounded-xl p-6 shadow-2xl w-full max-w-4xl mx-auto">
+            <h3 className="text-center text-xl sm:text-2xl font-black text-white mb-6 uppercase tracking-widest border-b border-slate-700 pb-4">
+              ⚖️ BALANCE FINANCIERO DEL EFECTO ZARA
+            </h3>
+            <div className="flex flex-col md:flex-row gap-6 justify-center">
+              {/* TARJETA DE PÉRDIDA */}
+              <div className="flex-1 bg-red-950/30 border border-red-800/50 rounded-xl p-6 text-center transform transition hover:scale-105">
+                <p className="text-red-400 font-bold uppercase tracking-wide text-sm mb-2">💥 CUÁNTO PERDIÓ LA EMPRESA</p>
+                <p className="text-red-500 text-4xl sm:text-5xl font-black mb-2 font-mono">$ 144.000.000</p>
+                <p className="text-red-300/70 text-xs uppercase font-bold tracking-wider">Costo Hundido (Suelas y Tela)</p>
+              </div>
+              {/* TARJETA DE AHORRO */}
+              <div className="flex-1 bg-emerald-950/30 border border-emerald-500/50 rounded-xl p-6 text-center transform transition hover:scale-105 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+                <p className="text-emerald-400 font-bold uppercase tracking-wide text-sm mb-2">💰 CUÁNTO SALVÓ LA EMPRESA</p>
+                <p className="text-emerald-500 text-4xl sm:text-5xl font-black mb-2 font-mono drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]">$ 80.000.000</p>
+                <p className="text-emerald-300/70 text-xs uppercase font-bold tracking-wider">Efectivo Protegido (Nómina y Bodega)</p>
+              </div>
+            </div>
+          </div>
+
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
