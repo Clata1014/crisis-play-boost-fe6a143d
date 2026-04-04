@@ -144,7 +144,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
           className="rounded-lg border border-border bg-card p-5 space-y-3"
         >
           <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
-            PASO 1: Sumar los costos unitarios (Costo total de 1 par)
+            PASO 1: COSTO TOTAL DE 1 PAR (Suma de Materiales, Mano de Obra y Logística)
           </label>
           <input
             type="text"
