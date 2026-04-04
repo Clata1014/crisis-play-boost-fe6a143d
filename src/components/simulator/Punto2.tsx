@@ -11,7 +11,7 @@ interface Punto2Props {
 
 type P2Phase = "briefing" | "control" | "debrief";
 
-const Punto2 = ({ onBack }: Punto2Props) => {
+const Punto2 = ({ onBack, onNextLevel }: Punto2Props) => {
   const [phase, setPhase] = useState<P2Phase>("briefing");
   const [correct, setCorrect] = useState(false);
 
