@@ -18,7 +18,7 @@ const Punto3Debrief = ({ onBack, onRetry }: Punto3DebriefProps) => {
     try {
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
-        const speechTexto = "¡Misión cumplida! Presta mucha atención a esta lección: Un Costo Hundido es ese dinero que ya gastaste y no puedes recuperar, como los ciento cuarenta y cuatro millones en materiales. Un mal gerente habría fabricado los zapatos para no perder las telas, botando más dinero a la basura. Tú aplicaste el Efecto Zara, aceptaste la pérdida inevitable de la tela, pero salvaste ochenta millones en efectivo. ¡Esa es una decisión financiera brillante! Reto superado.";
+        const speechTexto = "¡Misión cumplida! Presta mucha atención. Un Costo Hundido es ese dinero que ya gastaste y no puedes recuperar. Es como cuando pagas la boleta del cine, la película es horrible, pero te quedas sufriendo hasta el final solo porque ya pagaste. ¡Es un error! La plata ya se perdió, lo mejor es salir de la sala. En la fábrica, las telas de los zapatos son la boleta del cine: dinero perdido. Un gerente novato habría fabricado los tenis para no perder las telas, botando a la basura ochenta millones más. Tú aplicaste el Efecto Zara, abandonaste las telas, y salvaste el dinero en efectivo. Y la prueba matemática es perfecta: si sumas los ciento cuarenta y cuatro millones perdidos, más los ochenta millones salvados, verás que dan exactamente los doscientos veinticuatro millones del riesgo total. ¡Eres brillante!";
         const speech = new SpeechSynthesisUtterance(speechTexto);
         speech.lang = 'es-ES';
         speech.pitch = 1.3;
@@ -127,6 +127,13 @@ const Punto3Debrief = ({ onBack, onRetry }: Punto3DebriefProps) => {
             <p className="font-mono text-sm leading-relaxed text-foreground">
               <strong className="text-amber-400">¿Qué pasa si fabricamos los tenis y nadie los compra?</strong>{" "}
               Perdemos los $224 millones más el espacio de la bodega. El Efecto Zara no es solo saber matemáticas, es tener el <strong className="text-crisis-green">valor gerencial</strong> de decir <strong className="text-crisis-red">¡PAREN TODO!</strong> a tiempo. Ese dinero ahora puede usarse para comprar materiales color pastel.
+            </p>
+          </div>
+
+          <div className="mt-8 p-5 bg-emerald-950/30 border border-emerald-500/50 rounded-xl text-center shadow-[0_0_15px_rgba(16,185,129,0.15)] w-full max-w-4xl mx-auto">
+            <p className="text-emerald-50 text-lg md:text-xl leading-relaxed">
+              <span className="text-2xl mb-3 block">⚖️ <strong>LA PRUEBA MATEMÁTICA</strong></span>
+              Si sumas tu Costo Hundido con tu Ahorro Real <span className="font-mono bg-emerald-900/80 px-2 py-1 rounded text-white font-bold mx-1">($144.000.000 + $80.000.000)</span>, verás que dan exactamente los <strong className="text-sky-400 font-black text-xl md:text-2xl tracking-wider mx-1">$224.000.000</strong> de la producción total en riesgo. ¡En la logística y la gerencia el balance siempre cuadra a la perfección!
             </p>
           </div>
 
