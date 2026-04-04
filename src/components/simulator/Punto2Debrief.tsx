@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { RotateCcw, Shield, Sparkles, ArrowLeft } from "lucide-react";
+import { RotateCcw, Shield, Sparkles, ArrowLeft, ChevronRight } from "lucide-react";
 import ReactConfetti from "react-confetti";
 import { useEffect, useState } from "react";
 import { usePremiumVoice } from "@/hooks/usePremiumVoice";
@@ -8,6 +8,7 @@ interface Punto2DebriefProps {
   correct: boolean;
   onRetry: () => void;
   onBack: () => void;
+  onNextLevel?: () => void;
 }
 
 const FAIL_TEXT =
@@ -61,7 +62,7 @@ const FailScreen = ({ onRetry }: { onRetry: () => void }) => {
   );
 };
 
-const SuccessScreen = ({ onBack }: { onBack: () => void }) => {
+const SuccessScreen = ({ onBack, onNextLevel }: { onBack: () => void; onNextLevel?: () => void }) => {
   const [dimensions, setDimensions] = useState({ w: 800, h: 600 });
   const { speak, stop } = usePremiumVoice();
 
@@ -130,22 +131,35 @@ const SuccessScreen = ({ onBack }: { onBack: () => void }) => {
             No puedes alquilar 0.6 camiones. ¡Nivel 2 completado!
           </p>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => { stop(); onBack(); }}
-            className="mt-6 flex items-center gap-2 rounded border border-muted px-6 py-3 font-orbitron text-sm font-bold text-muted-foreground transition-colors hover:bg-muted/20"
-          >
-            <ArrowLeft className="h-4 w-4" /> VOLVER AL INICIO
-          </motion.button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => { stop(); onBack(); }}
+              className="flex items-center gap-2 rounded border border-muted px-6 py-3 font-orbitron text-sm font-bold text-muted-foreground transition-colors hover:bg-muted/20"
+            >
+              <ArrowLeft className="h-4 w-4" /> VOLVER AL INICIO
+            </motion.button>
+
+            {onNextLevel && (
+              <motion.button
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => { stop(); onNextLevel(); }}
+                className="flex items-center gap-2 rounded-lg bg-crisis-green px-8 py-4 font-orbitron text-base font-black text-background animate-bounce shadow-[0_0_30px_hsl(142,76%,45%/0.4)]"
+              >
+                🚀 AVANZAR AL PUNTO 3 <ChevronRight className="h-5 w-5" />
+              </motion.button>
+            )}
+          </div>
         </div>
       </motion.div>
     </div>
   );
 };
 
-const Punto2Debrief = ({ correct, onRetry, onBack }: Punto2DebriefProps) => {
-  return correct ? <SuccessScreen onBack={onBack} /> : <FailScreen onRetry={onRetry} />;
+const Punto2Debrief = ({ correct, onRetry, onBack, onNextLevel }: Punto2DebriefProps) => {
+  return correct ? <SuccessScreen onBack={onBack} onNextLevel={onNextLevel} /> : <FailScreen onRetry={onRetry} />;
 };
 
 export default Punto2Debrief;

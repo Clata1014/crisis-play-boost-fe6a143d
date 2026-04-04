@@ -5,8 +5,9 @@ import Briefing from "./Briefing";
 import ControlPanel from "./ControlPanel";
 import Debriefing from "./Debriefing";
 import Punto2 from "./Punto2";
+import Punto3 from "./Punto3";
 
-type Phase = "lobby" | "briefing" | "control" | "debrief" | "punto2";
+type Phase = "lobby" | "briefing" | "control" | "debrief" | "punto2" | "punto3";
 
 const SimuladorIndustrial = () => {
   const [phase, setPhase] = useState<Phase>("lobby");
@@ -55,7 +56,12 @@ const SimuladorIndustrial = () => {
         )}
         {phase === "punto2" && (
           <motion.div key="punto2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <Punto2 onBack={handleBackToPunto1} />
+            <Punto2 onBack={handleBackToPunto1} onNextLevel={() => setPhase("punto3")} />
+          </motion.div>
+        )}
+        {phase === "punto3" && (
+          <motion.div key="punto3" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <Punto3 onBack={() => setPhase("lobby")} />
           </motion.div>
         )}
       </AnimatePresence>

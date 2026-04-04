@@ -6,11 +6,12 @@ import Punto2Debrief from "./Punto2Debrief";
 
 interface Punto2Props {
   onBack: () => void;
+  onNextLevel?: () => void;
 }
 
 type P2Phase = "briefing" | "control" | "debrief";
 
-const Punto2 = ({ onBack }: Punto2Props) => {
+const Punto2 = ({ onBack, onNextLevel }: Punto2Props) => {
   const [phase, setPhase] = useState<P2Phase>("briefing");
   const [correct, setCorrect] = useState(false);
 
@@ -34,7 +35,7 @@ const Punto2 = ({ onBack }: Punto2Props) => {
         )}
         {phase === "debrief" && (
           <motion.div key="p2-debrief" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <Punto2Debrief correct={correct} onRetry={() => setPhase("briefing")} onBack={onBack} />
+            <Punto2Debrief correct={correct} onRetry={() => setPhase("briefing")} onBack={onBack} onNextLevel={onNextLevel} />
           </motion.div>
         )}
       </AnimatePresence>
