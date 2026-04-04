@@ -59,6 +59,11 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
       triggerShake();
       return;
     }
+    if (result5 !== 224000000) {
+      setError("Paso 5: Suma el Costo Hundido más el Ahorro Real. El resultado debe ser igual al valor total del lote en riesgo.");
+      triggerShake();
+      return;
+    }
     setError("");
     onSuccess();
   };
