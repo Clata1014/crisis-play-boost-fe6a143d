@@ -158,8 +158,8 @@ const SuccessScreen = ({ onBack, onNextLevel }: { onBack: () => void; onNextLeve
   );
 };
 
-const Punto2Debrief = ({ correct, onRetry, onBack }: Punto2DebriefProps) => {
-  return correct ? <SuccessScreen onBack={onBack} /> : <FailScreen onRetry={onRetry} />;
+const Punto2Debrief = ({ correct, onRetry, onBack, onNextLevel }: Punto2DebriefProps) => {
+  return correct ? <SuccessScreen onBack={onBack} onNextLevel={onNextLevel} /> : <FailScreen onRetry={onRetry} />;
 };
 
 export default Punto2Debrief;
