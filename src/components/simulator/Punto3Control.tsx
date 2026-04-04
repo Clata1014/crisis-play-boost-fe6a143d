@@ -12,6 +12,7 @@ const evaluateFormula = (expression: string): number | null => {
   }
 };
 
+interface Punto3ControlProps {
   onSuccess: () => void;
   onBack: () => void;
   inputs: { input1: string; input2: string; input3: string; input4: string; input5: string };
