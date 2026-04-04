@@ -8,6 +8,7 @@ interface Punto2DebriefProps {
   correct: boolean;
   onRetry: () => void;
   onBack: () => void;
+  onNextLevel?: () => void;
 }
 
 const FAIL_TEXT =
