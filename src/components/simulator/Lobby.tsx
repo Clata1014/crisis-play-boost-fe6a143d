@@ -5,7 +5,7 @@ interface LobbyProps {
   onStart: () => void;
 }
 
-const Lobby = ({ onStart, onStartPunto3 }: LobbyProps) => {
+const Lobby = ({ onStart }: LobbyProps) => {
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-background">
       <div className="pointer-events-none fixed inset-0 animate-emergency-pulse bg-[radial-gradient(ellipse_at_top,hsl(0_90%_55%/0.08),transparent_60%)]" />
