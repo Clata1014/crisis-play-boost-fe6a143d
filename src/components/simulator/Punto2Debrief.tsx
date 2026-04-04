@@ -62,7 +62,7 @@ const FailScreen = ({ onRetry }: { onRetry: () => void }) => {
   );
 };
 
-const SuccessScreen = ({ onBack }: { onBack: () => void }) => {
+const SuccessScreen = ({ onBack, onNextLevel }: { onBack: () => void; onNextLevel?: () => void }) => {
   const [dimensions, setDimensions] = useState({ w: 800, h: 600 });
   const { speak, stop } = usePremiumVoice();
 
