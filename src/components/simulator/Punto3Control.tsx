@@ -216,7 +216,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
           className="rounded-lg border border-border bg-card p-5 space-y-3"
         >
           <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
-            PASO 4: El AHORRO REAL (Dinero en efectivo salvado)
+            PASO 4: ¿CUÁNTO DINERO SALVÓ LA EMPRESA? (Calcula el ahorro en efectivo de Nómina y Logística)
           </label>
           <input
             type="text"
