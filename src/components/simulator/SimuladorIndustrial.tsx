@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Lobby from "./Lobby";
 import Briefing from "./Briefing";
@@ -8,6 +8,8 @@ import Punto2 from "./Punto2";
 import Punto3 from "./Punto3";
 
 type Phase = "lobby" | "briefing" | "control" | "debrief" | "punto2" | "punto3";
+
+const PHASE_ORDER: Phase[] = ["lobby", "briefing", "control", "debrief", "punto2", "punto3"];
 
 const SimuladorIndustrial = () => {
   const [phase, setPhase] = useState<Phase>("lobby");
@@ -21,6 +23,20 @@ const SimuladorIndustrial = () => {
   const handleRetry = () => setPhase("control");
   const handleBackToPunto1 = () => setPhase("debrief");
 
+  const handleGhostHome = useCallback(() => {
+    try { window.speechSynthesis.cancel(); } catch {}
+    setPhase("lobby");
+  }, []);
+
+  const handleGhostSkip = useCallback(() => {
+    try { window.speechSynthesis.cancel(); } catch {}
+    setPhase((prev) => {
+      const idx = PHASE_ORDER.indexOf(prev);
+      if (idx < 0 || idx >= PHASE_ORDER.length - 1) return "lobby";
+      return PHASE_ORDER[idx + 1];
+    });
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-background">
       {/* Grid overlay */}
@@ -32,6 +48,24 @@ const SimuladorIndustrial = () => {
           backgroundSize: "40px 40px",
         }}
       />
+
+      {/* Ghost button: Home (bottom-left) */}
+      <button
+        onClick={handleGhostHome}
+        className="fixed bottom-0 left-0 w-16 h-16 bg-slate-900/90 text-white flex items-center justify-center opacity-0 hover:opacity-30 z-[9999] cursor-default transition-opacity duration-500 rounded-tr-2xl"
+        aria-label="Volver al inicio"
+      >
+        <span className="text-2xl">🏠</span>
+      </button>
+
+      {/* Ghost button: Skip (bottom-right) */}
+      <button
+        onClick={handleGhostSkip}
+        className="fixed bottom-0 right-0 w-16 h-16 bg-slate-900/90 text-white flex items-center justify-center opacity-0 hover:opacity-30 z-[9999] cursor-default transition-opacity duration-500 rounded-tl-2xl"
+        aria-label="Avanzar"
+      >
+        <span className="text-2xl">⏭️</span>
+      </button>
 
       <AnimatePresence mode="wait">
         {phase === "lobby" && (
