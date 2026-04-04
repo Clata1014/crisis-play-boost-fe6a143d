@@ -2,11 +2,6 @@ import { motion } from "framer-motion";
 import { AlertTriangle, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
-interface Punto3ControlProps {
-  onSuccess: () => void;
-  onBack: () => void;
-}
-
 const evaluateFormula = (expression: string): number | null => {
   try {
     const sanitized = expression.toLowerCase().replace(/x/g, '*').replace(/[^0-9+\-*/().]/g, '');
@@ -17,12 +12,22 @@ const evaluateFormula = (expression: string): number | null => {
   }
 };
 
-const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
-  const [input1, setInput1] = useState("");
-  const [input2, setInput2] = useState("");
-  const [input3, setInput3] = useState("");
-  const [input4, setInput4] = useState("");
-  const [input5, setInput5] = useState("");
+interface Punto3ControlProps {
+  onSuccess: () => void;
+  onBack: () => void;
+  inputs: { input1: string; input2: string; input3: string; input4: string; input5: string };
+  setInputs: {
+    setInput1: (v: string) => void;
+    setInput2: (v: string) => void;
+    setInput3: (v: string) => void;
+    setInput4: (v: string) => void;
+    setInput5: (v: string) => void;
+  };
+}
+
+const Punto3Control = ({ onSuccess, onBack, inputs, setInputs }: Punto3ControlProps) => {
+  const { input1, input2, input3, input4, input5 } = inputs;
+  const { setInput1, setInput2, setInput3, setInput4, setInput5 } = setInputs;
   const [error, setError] = useState("");
   const [shake, setShake] = useState(false);
 
