@@ -30,6 +30,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
   const result2 = evaluateFormula(input2);
   const result3 = evaluateFormula(input3);
   const result4 = evaluateFormula(input4);
+  const result5 = evaluateFormula(input5);
 
   const triggerShake = () => {
     setShake(true);
