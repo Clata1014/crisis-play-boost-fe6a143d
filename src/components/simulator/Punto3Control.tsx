@@ -64,8 +64,8 @@ const Punto3Control = ({ onSuccess, onBack, inputs, setInputs }: Punto3ControlPr
       triggerShake();
       return;
     }
-    if (result5 !== 224000000) {
-      setError("Paso 5: Suma el Costo Hundido más el Ahorro Real. El resultado debe ser igual al valor total del lote en riesgo.");
+    if (result5 !== 1600) {
+      setError("Paso 5: Divide el efectivo salvado entre el costo de fabricar un zapato pastel ($50.000).");
       triggerShake();
       return;
     }
