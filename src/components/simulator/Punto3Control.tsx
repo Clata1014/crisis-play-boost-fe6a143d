@@ -150,7 +150,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
             type="text"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
-            placeholder="Ej: 1000 + 2000 + 500"
+            placeholder="Escribe tu fórmula aquí..."
             className="w-full bg-background border border-border p-3 rounded text-foreground font-mono focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
           />
           {renderFeedback(result1, 70000,
@@ -174,7 +174,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
             type="text"
             value={input2}
             onChange={(e) => setInput2(e.target.value)}
-            placeholder="Ej: 1500 * 50"
+            placeholder="Escribe tu fórmula aquí..."
             className="w-full bg-background border border-border p-3 rounded text-foreground font-mono focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
           />
           {renderFeedback(result2, 224000000,
@@ -198,7 +198,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
             type="text"
             value={input3}
             onChange={(e) => setInput3(e.target.value)}
-            placeholder="Ej: 800 * 50"
+            placeholder="Escribe tu fórmula aquí..."
             className="w-full bg-background border border-border p-3 rounded text-foreground font-mono focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
           />
           {renderFeedback(result3, 144000000,
