@@ -20,11 +20,15 @@ const evaluateFormula = (expression: string): number | null => {
 const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
+  const [input3, setInput3] = useState("");
+  const [input4, setInput4] = useState("");
   const [error, setError] = useState("");
   const [shake, setShake] = useState(false);
 
   const result1 = evaluateFormula(input1);
   const result2 = evaluateFormula(input2);
+  const result3 = evaluateFormula(input3);
+  const result4 = evaluateFormula(input4);
 
   const triggerShake = () => {
     setShake(true);
@@ -34,17 +38,39 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
   const handleCheck = (e: React.MouseEvent) => {
     e.preventDefault();
     if (result1 !== 70000) {
-      setError("Paso 1: Suma los 3 costos unitarios: Materiales ($45.000) + Mano de Obra ($15.000) + Logística ($10.000).");
+      setError("Paso 1: Suma los 3 costos unitarios: Materiales + Mano de Obra + Logística.");
       triggerShake();
       return;
     }
     if (result2 !== 224000000) {
-      setError("Paso 2: Multiplica el costo de 1 par ($70.000) por los 3.200 pares que NO se fabricarán.");
+      setError("Paso 2: Multiplica el costo de 1 par por los 3.200 pares que NO se fabricarán.");
+      triggerShake();
+      return;
+    }
+    if (result3 !== 144000000) {
+      setError("Paso 3: El material ya comprado (Materiales por par × 3.200 pares) es el costo hundido inevitable.");
+      triggerShake();
+      return;
+    }
+    if (result4 !== 80000000) {
+      setError("Paso 4: El ahorro real es la diferencia entre el costo total evitado y el costo hundido.");
       triggerShake();
       return;
     }
     setError("");
     onSuccess();
+  };
+
+  const renderFeedback = (result: number | null, target: number, successJsx: React.ReactNode) => {
+    if (result === target) return successJsx;
+    if (result !== null && result !== target) {
+      return (
+        <p className="text-red-500 text-lg font-black mt-2 bg-red-950/40 p-2 rounded inline-block border border-red-800">
+          ❌ = $ {result.toLocaleString('es-CO')}
+        </p>
+      );
+    }
+    return null;
   };
 
   return (
@@ -69,7 +95,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
           <p className="font-mono text-sm leading-relaxed text-foreground">
             La tendencia cambió a colores pasteles. Tenemos material para ensamblar{" "}
             <strong className="text-primary">3.200 pares</strong> de Tenis Comet color neón que{" "}
-            <strong className="text-crisis-red">ya nadie quiere comprar</strong>. Calcula el costo de fabricar 1 par y luego el ahorro total si frenamos la producción.
+            <strong className="text-crisis-red">ya nadie quiere comprar</strong>. Calcula los costos, identifica el costo hundido y determina el ahorro real.
           </p>
         </motion.div>
 
@@ -124,17 +150,12 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
             type="text"
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
-            placeholder="Ej: 45000+15000+10000"
+            placeholder="Ej: 1000 + 2000 + 500"
             className="w-full bg-background border border-border p-3 rounded text-foreground font-mono focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
           />
-          {result1 === 70000 && (
+          {renderFeedback(result1, 70000,
             <p className="text-emerald-400 text-xl font-black mt-2 bg-emerald-950/40 p-2 rounded inline-block border border-emerald-800">
               ✅ = $ 70.000
-            </p>
-          )}
-          {result1 !== null && result1 !== 70000 && (
-            <p className="text-red-500 text-lg font-black mt-2 bg-red-950/40 p-2 rounded inline-block border border-red-800">
-              ❌ = $ {result1.toLocaleString('es-CO')}
             </p>
           )}
         </motion.div>
@@ -153,17 +174,60 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
             type="text"
             value={input2}
             onChange={(e) => setInput2(e.target.value)}
-            placeholder="Ej: 70000*3200"
+            placeholder="Ej: 1500 * 50"
             className="w-full bg-background border border-border p-3 rounded text-foreground font-mono focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
           />
-          {result2 === 224000000 && (
+          {renderFeedback(result2, 224000000,
             <p className="text-emerald-400 text-xl font-black mt-2 bg-emerald-950/40 p-2 rounded inline-block border border-emerald-800">
               ✅ = $ 224.000.000
             </p>
           )}
-          {result2 !== null && result2 !== 224000000 && (
-            <p className="text-red-500 text-lg font-black mt-2 bg-red-950/40 p-2 rounded inline-block border border-red-800">
-              ❌ = $ {result2.toLocaleString('es-CO')}
+        </motion.div>
+
+        {/* Input 3 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="rounded-lg border border-border bg-card p-5 space-y-3"
+        >
+          <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
+            PASO 3: Calcular el COSTO HUNDIDO (Material ya comprado — pérdida inevitable)
+          </label>
+          <input
+            type="text"
+            value={input3}
+            onChange={(e) => setInput3(e.target.value)}
+            placeholder="Ej: 800 * 50"
+            className="w-full bg-background border border-border p-3 rounded text-foreground font-mono focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
+          />
+          {renderFeedback(result3, 144000000,
+            <p className="text-amber-400 text-xl font-black mt-2 bg-amber-950/40 p-2 rounded inline-block border border-amber-800">
+              ⚠️ = $ 144.000.000 (Pérdida Asumida)
+            </p>
+          )}
+        </motion.div>
+
+        {/* Input 4 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="rounded-lg border border-border bg-card p-5 space-y-3"
+        >
+          <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
+            PASO 4: El AHORRO REAL (Dinero en efectivo salvado)
+          </label>
+          <input
+            type="text"
+            value={input4}
+            onChange={(e) => setInput4(e.target.value)}
+            placeholder="Escribe tu cálculo aquí..."
+            className="w-full bg-background border border-border p-3 rounded text-foreground font-mono focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
+          />
+          {renderFeedback(result4, 80000000,
+            <p className="text-emerald-400 text-xl font-black mt-2 bg-emerald-950/40 p-2 rounded inline-block border border-emerald-800">
+              ✅ = $ 80.000.000 (¡Efectivo Salvado!)
             </p>
           )}
         </motion.div>
@@ -174,7 +238,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={handleCheck}
-          disabled={!input1.trim() || !input2.trim()}
+          disabled={!input1.trim() || !input2.trim() || !input3.trim() || !input4.trim()}
           className="w-full rounded border-2 border-crisis-green bg-crisis-green/10 px-8 py-4 font-orbitron text-sm font-bold text-crisis-green transition hover:bg-crisis-green/20 disabled:opacity-30 disabled:cursor-not-allowed"
         >
           ⚡ COMPROBAR EFECTO ZARA
