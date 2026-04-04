@@ -64,8 +64,8 @@ const Punto3Control = ({ onSuccess, onBack, inputs, setInputs }: Punto3ControlPr
       triggerShake();
       return;
     }
-    if (result5 !== 224000000) {
-      setError("Paso 5: Suma el Costo Hundido más el Ahorro Real. El resultado debe ser igual al valor total del lote en riesgo.");
+    if (result5 !== 1600) {
+      setError("Paso 5: Divide el efectivo salvado entre el costo de fabricar un zapato pastel ($50.000).");
       triggerShake();
       return;
     }
@@ -252,7 +252,7 @@ const Punto3Control = ({ onSuccess, onBack, inputs, setInputs }: Punto3ControlPr
           className="rounded-lg border border-border bg-card p-5 space-y-3"
         >
           <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
-            PASO 5: LA PRUEBA MATEMÁTICA (SUMA EL COSTO HUNDIDO MÁS EL AHORRO REAL)
+            PASO 5: LA REINVERSIÓN (Si fabricar un zapato color PASTEL cuesta $50.000, ¿cuántos pares nuevos fabricamos con el efectivo salvado? Usa el símbolo / para dividir)
           </label>
           <input
             type="text"
@@ -261,11 +261,15 @@ const Punto3Control = ({ onSuccess, onBack, inputs, setInputs }: Punto3ControlPr
             placeholder="Escribe tu fórmula aquí..."
             className="w-full bg-background border border-border p-3 rounded text-foreground font-mono focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
           />
-          {renderFeedback(result5, 224000000,
+          {result5 === 1600 ? (
             <p className="text-emerald-400 text-xl font-black mt-2 bg-emerald-950/40 p-2 rounded inline-block border border-emerald-800">
-              ✅ = $ 224.000.000 (¡Balance Perfecto!)
+              ✅ = 1.600 Pares Nuevos (¡Capital Reinvertido!)
             </p>
-          )}
+          ) : result5 !== null && result5 !== 1600 ? (
+            <p className="text-red-500 text-lg font-black mt-2 bg-red-950/40 p-2 rounded inline-block border border-red-800">
+              ❌ = {result5.toLocaleString('es-CO')}
+            </p>
+          ) : null}
         </motion.div>
 
         {/* Submit */}

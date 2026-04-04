@@ -18,7 +18,7 @@ const Punto3Debrief = ({ onBack, onRetry }: Punto3DebriefProps) => {
     try {
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
-        const speechTexto = "¡Misión cumplida! Presta mucha atención. Un Costo Hundido es ese dinero que ya gastaste y no puedes recuperar. Es como cuando pagas la boleta del cine, la película es horrible, pero te quedas sufriendo hasta el final solo porque ya pagaste. ¡Es un error! La plata ya se perdió, lo mejor es salir de la sala. En la fábrica, las telas de los zapatos son la boleta del cine: dinero perdido. Un gerente novato habría fabricado los tenis para no perder las telas, botando a la basura ochenta millones más. Tú aplicaste el Efecto Zara, abandonaste las telas, y salvaste el dinero en efectivo. ¡Eres brillante!";
+        const speechTexto = "¡Misión cumplida! Presta mucha atención. Un Costo Hundido es ese dinero que ya gastaste y no puedes recuperar, como la boleta de una película mala. Un gerente novato habría fabricado los tenis neón para no perder las telas, botando a la basura ochenta millones de pesos más. Tú aplicaste el Efecto Zara: aceptaste la pérdida de la tela, salvaste el dinero en efectivo, y demostraste tener mente de tiburón al reinvertirlo inmediatamente para fabricar mil seiscientos pares de la nueva tendencia pastel. ¡Eres brillante!";
         const speech = new SpeechSynthesisUtterance(speechTexto);
         speech.lang = 'es-ES';
         speech.pitch = 1.3;
