@@ -252,7 +252,7 @@ const Punto3Control = ({ onSuccess, onBack, inputs, setInputs }: Punto3ControlPr
           className="rounded-lg border border-border bg-card p-5 space-y-3"
         >
           <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
-            PASO 5: LA REINVERSIÓN (Si fabricar un zapato color PASTEL cuesta $50.000, ¿cuántos pares nuevos fabricamos con el efectivo salvado? Usa el símbolo / para dividir)
+            PASO 5: LA REINVERSIÓN (SI FABRICAR UN ZAPATO COLOR PASTEL CUESTA $50.000, ¿CUÁNTOS PARES NUEVOS PODEMOS FABRICAR CON EL EFECTIVO QUE SALVAMOS?)
           </label>
           <input
             type="text"
