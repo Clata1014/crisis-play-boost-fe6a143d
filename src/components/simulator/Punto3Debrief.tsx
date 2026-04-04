@@ -18,7 +18,7 @@ const Punto3Debrief = ({ onBack, onRetry }: Punto3DebriefProps) => {
     try {
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
-        const speechTexto = "¡Misión cumplida! Presta mucha atención. Un Costo Hundido es ese dinero que ya gastaste y no puedes recuperar, como la boleta de una película mala. Un gerente novato habría fabricado los tenis neón para no perder las telas, botando a la basura ochenta millones de pesos más. Tú aplicaste el Efecto Zara: aceptaste la pérdida de la tela, salvaste el dinero en efectivo, y demostraste tener mente de tiburón al reinvertirlo inmediatamente para fabricar mil seiscientos pares de la nueva tendencia pastel. ¡Eres brillante!";
+        const speechTexto = "¡Misión cumplida! Presta mucha atención. Un Costo Hundido es ese dinero que ya gastaste y no puedes recuperar, como cuando compras la boleta para una película mala. Un gerente novato habría fabricado los tenis neón para no perder las telas, botando a la basura ochenta millones de pesos. Pero tú aplicaste el Efecto Zara y salvaste el efectivo. Y escucha bien esto: el verdadero éxito no es solo cancelar un proyecto malo, es ser ágil para inyectarle esa plata al producto que sí va a dar ganancias. Con esos ochenta millones que protegiste, pudimos fabricar de inmediato mil seiscientos pares nuevos de la tendencia pastel que se venderán como pan caliente. ¡Eso es tener mente de tiburón en los negocios!";
         const speech = new SpeechSynthesisUtterance(speechTexto);
         speech.lang = 'es-ES';
         speech.pitch = 1.3;
@@ -86,10 +86,17 @@ const Punto3Debrief = ({ onBack, onRetry }: Punto3DebriefProps) => {
             <p className="text-slate-300 text-lg leading-relaxed mb-4">
               Un gerente novato diría: <em>"¡Terminemos de fabricar los tenis para no perder la tela!"</em>. ¡Esa es una pésima decisión!
             </p>
-            <p className="text-slate-300 text-lg leading-relaxed">
-              Al aplicar el Efecto Zara y tener el valor de decir <strong>"¡PAREN TODO!"</strong>, asumiste la pérdida inicial de la tela, pero evitaste que la empresa botara <span className="font-bold text-emerald-400">$80.000.000</span> adicionales en efectivo pagando salarios y bodegas por unos tenis que ya nadie quiere comprar. ¡El verdadero gerente protege el flujo de caja a futuro!
-            </p>
-          </div>
+             <p className="text-slate-300 text-lg leading-relaxed">
+               Al aplicar el Efecto Zara y tener el valor de decir <strong>"¡PAREN TODO!"</strong>, asumiste la pérdida inicial de la tela, pero evitaste que la empresa botara <span className="font-bold text-emerald-400">$80.000.000</span> adicionales en efectivo pagando salarios y bodegas por unos tenis que ya nadie quiere comprar. ¡El verdadero gerente protege el flujo de caja a futuro!
+             </p>
+
+             <div className="border-t border-slate-700 pt-6 mt-6">
+               <p className="text-slate-300 text-lg leading-relaxed">
+                 <strong className="text-emerald-400 text-xl">🚀 El Verdadero Efecto Zara (Agilidad):</strong><br/>
+                 El éxito no es solo tener el valor de cancelar un proyecto malo, <strong className="text-white bg-slate-800 px-2 py-1 rounded">es ser ágil para inyectarle plata al producto que SÍ va a dar ganancias.</strong> Con los $80.000.000 en efectivo que salvaste, la empresa pudo reinvertir inmediatamente y fabricar <span className="font-black text-emerald-400 text-2xl bg-emerald-950/50 px-2 border border-emerald-800 py-1 rounded mx-1">1.600</span> pares nuevos de tenis pastel. ¡Pasaste de una pérdida segura a una nueva oportunidad de ventas en tiempo récord!
+               </p>
+             </div>
+           </div>
 
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
