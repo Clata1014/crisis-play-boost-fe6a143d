@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { RotateCcw, Shield, Sparkles, ArrowLeft, ChevronRight } from "lucide-react";
+import { RotateCcw, Shield, Sparkles } from "lucide-react";
 import ReactConfetti from "react-confetti";
 import { useEffect, useState } from "react";
 import { usePremiumVoice } from "@/hooks/usePremiumVoice";
@@ -131,25 +131,29 @@ const SuccessScreen = ({ onBack, onNextLevel }: { onBack: () => void; onNextLeve
             No puedes alquilar 0.6 camiones. ¡Nivel 2 completado!
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => { stop(); onBack(); }}
-              className="flex items-center gap-2 rounded border border-muted px-6 py-3 font-orbitron text-sm font-bold text-muted-foreground transition-colors hover:bg-muted/20"
+          <div className="mx-auto mt-8 flex w-full max-w-2xl flex-col justify-center gap-4 sm:flex-row">
+            <button
+              type="button"
+              onClick={() => {
+                stop();
+                onBack();
+              }}
+              className="flex flex-1 items-center justify-center rounded-xl border border-border bg-muted/30 px-6 py-4 font-orbitron text-sm font-bold uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
             >
-              <ArrowLeft className="h-4 w-4" /> VOLVER AL INICIO
-            </motion.button>
+              ⬅️ VOLVER AL INICIO
+            </button>
 
             {onNextLevel && (
-              <motion.button
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => { stop(); onNextLevel(); }}
-                className="flex items-center gap-2 rounded-lg bg-crisis-green px-8 py-4 font-orbitron text-base font-black text-background animate-bounce shadow-[0_0_30px_hsl(142,76%,45%/0.4)]"
+              <button
+                type="button"
+                onClick={() => {
+                  stop();
+                  onNextLevel();
+                }}
+                className="flex flex-1 items-center justify-center rounded-xl border border-crisis-green bg-crisis-green px-6 py-4 font-orbitron text-sm font-black uppercase tracking-[0.14em] text-background shadow-lg transition-transform hover:scale-[1.02] hover:bg-crisis-green/90"
               >
-                🚀 AVANZAR AL PUNTO 3 <ChevronRight className="h-5 w-5" />
-              </motion.button>
+                🚀 AVANZAR AL PUNTO 3
+              </button>
             )}
           </div>
         </div>
