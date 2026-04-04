@@ -130,12 +130,6 @@ const Punto3Debrief = ({ onBack, onRetry }: Punto3DebriefProps) => {
             </p>
           </div>
 
-          <div className="mt-8 p-5 bg-emerald-950/30 border border-emerald-500/50 rounded-xl text-center shadow-[0_0_15px_rgba(16,185,129,0.15)] w-full max-w-4xl mx-auto">
-            <p className="text-emerald-50 text-lg md:text-xl leading-relaxed">
-              <span className="text-2xl mb-3 block">⚖️ <strong>LA PRUEBA MATEMÁTICA</strong></span>
-              Si sumas tu Costo Hundido con tu Ahorro Real <span className="font-mono bg-emerald-900/80 px-2 py-1 rounded text-white font-bold mx-1">($144.000.000 + $80.000.000)</span>, verás que dan exactamente los <strong className="text-sky-400 font-black text-xl md:text-2xl tracking-wider mx-1">$224.000.000</strong> de la producción total en riesgo. ¡En la logística y la gerencia el balance siempre cuadra a la perfección!
-            </p>
-          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
             <motion.button
