@@ -22,6 +22,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
   const [input2, setInput2] = useState("");
   const [input3, setInput3] = useState("");
   const [input4, setInput4] = useState("");
+  const [input5, setInput5] = useState("");
   const [error, setError] = useState("");
   const [shake, setShake] = useState(false);
 
