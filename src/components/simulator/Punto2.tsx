@@ -35,7 +35,7 @@ const Punto2 = ({ onBack, onNextLevel }: Punto2Props) => {
         )}
         {phase === "debrief" && (
           <motion.div key="p2-debrief" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <Punto2Debrief correct={correct} onRetry={() => setPhase("briefing")} onBack={onBack} />
+            <Punto2Debrief correct={correct} onRetry={() => setPhase("briefing")} onBack={onBack} onNextLevel={onNextLevel} />
           </motion.div>
         )}
       </AnimatePresence>
