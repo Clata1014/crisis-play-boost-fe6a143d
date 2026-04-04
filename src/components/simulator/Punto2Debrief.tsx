@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { RotateCcw, Shield, Sparkles, ArrowLeft } from "lucide-react";
+import { RotateCcw, Shield, Sparkles, ArrowLeft, ChevronRight } from "lucide-react";
 import ReactConfetti from "react-confetti";
 import { useEffect, useState } from "react";
 import { usePremiumVoice } from "@/hooks/usePremiumVoice";
