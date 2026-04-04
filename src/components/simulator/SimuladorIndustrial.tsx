@@ -36,7 +36,7 @@ const SimuladorIndustrial = () => {
       <AnimatePresence mode="wait">
         {phase === "lobby" && (
           <motion.div key="lobby" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <Lobby onStart={() => setPhase("briefing")} onStartPunto3={() => setPhase("punto3")} />
+            <Lobby onStart={() => setPhase("briefing")} />
           </motion.div>
         )}
         {phase === "briefing" && (

@@ -50,38 +50,19 @@ const Lobby = ({ onStart }: LobbyProps) => {
           Tecnología en Producción Industrial 2026-1
         </p>
 
-        <div className="mt-6 flex w-full max-w-xl flex-col gap-4">
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            whileHover={{ scale: 1.06 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={onStart}
-            className="rounded-lg border-2 border-crisis-red bg-crisis-red/10 px-8 py-5 font-orbitron text-base font-bold text-crisis-red transition hover:bg-crisis-red/20 md:text-lg"
-          >
-            <motion.span animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>
-              📲 CONTESTAR VIDEOLLAMADA DEL GERENTE
-            </motion.span>
-          </motion.button>
-
-          {onStartPunto3 && (
-            <motion.button
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={onStartPunto3}
-              className="rounded-xl border-2 border-crisis-green bg-crisis-green/10 px-8 py-5 text-center font-orbitron text-base font-black text-crisis-green transition hover:bg-crisis-green/20 md:text-lg"
-            >
-              👟 RETO 3: EL EFECTO ZARA
-              <span className="mt-2 block text-xs font-bold tracking-[0.24em] text-foreground/80 md:text-sm">
-                ENTRAR DIRECTO AL CASO TENIS COMET
-              </span>
-            </motion.button>
-          )}
-        </div>
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          whileHover={{ scale: 1.06 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={onStart}
+          className="mt-6 rounded-lg border-2 border-crisis-red bg-crisis-red/10 px-8 py-5 font-orbitron text-base font-bold text-crisis-red transition hover:bg-crisis-red/20 md:text-lg"
+        >
+          <motion.span animate={{ opacity: [1, 0.4, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>
+            📲 CONTESTAR VIDEOLLAMADA DEL GERENTE
+          </motion.span>
+        </motion.button>
       </motion.div>
     </div>
   );
