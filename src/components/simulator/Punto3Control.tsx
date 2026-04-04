@@ -168,7 +168,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
           className="rounded-lg border border-border bg-card p-5 space-y-3"
         >
           <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
-            PASO 2: Calcular el ahorro total (3.200 pares que NO se harán)
+            PASO 2: VALOR TOTAL DEL LOTE EN RIESGO (Costo total de 1 par multiplicado por los 3.200 pares)
           </label>
           <input
             type="text"
