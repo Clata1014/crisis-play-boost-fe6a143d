@@ -2,7 +2,16 @@ import { motion } from "framer-motion";
 import { AlertTriangle, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
-interface Punto3ControlProps {
+const evaluateFormula = (expression: string): number | null => {
+  try {
+    const sanitized = expression.toLowerCase().replace(/x/g, '*').replace(/[^0-9+\-*/().]/g, '');
+    if (!sanitized) return null;
+    return new Function('return ' + sanitized)();
+  } catch {
+    return null;
+  }
+};
+
   onSuccess: () => void;
   onBack: () => void;
   inputs: { input1: string; input2: string; input3: string; input4: string; input5: string };
