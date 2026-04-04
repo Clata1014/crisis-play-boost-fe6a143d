@@ -144,7 +144,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
           className="rounded-lg border border-border bg-card p-5 space-y-3"
         >
           <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
-            PASO 1: Sumar los costos unitarios (Costo total de 1 par)
+            PASO 1: COSTO TOTAL DE 1 PAR (Suma de Materiales, Mano de Obra y Logística)
           </label>
           <input
             type="text"
@@ -168,7 +168,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
           className="rounded-lg border border-border bg-card p-5 space-y-3"
         >
           <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
-            PASO 2: Calcular el ahorro total (3.200 pares que NO se harán)
+            PASO 2: VALOR TOTAL DEL LOTE EN RIESGO (Costo total de 1 par multiplicado por los 3.200 pares)
           </label>
           <input
             type="text"
@@ -192,7 +192,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
           className="rounded-lg border border-border bg-card p-5 space-y-3"
         >
           <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
-            PASO 3: Calcular el COSTO HUNDIDO (Material ya comprado — pérdida inevitable)
+            PASO 3: ¿CUÁNTO DINERO PERDIÓ LA EMPRESA? (Calcula el 'Costo Hundido' de los Materiales que ya se compraron)
           </label>
           <input
             type="text"
@@ -216,7 +216,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
           className="rounded-lg border border-border bg-card p-5 space-y-3"
         >
           <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">
-            PASO 4: El AHORRO REAL (Dinero en efectivo salvado)
+            PASO 4: ¿CUÁNTO DINERO SALVÓ LA EMPRESA? (Calcula el ahorro en efectivo de Nómina y Logística)
           </label>
           <input
             type="text"

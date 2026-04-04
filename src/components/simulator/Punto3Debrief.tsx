@@ -18,7 +18,7 @@ const Punto3Debrief = ({ onBack, onRetry }: Punto3DebriefProps) => {
     try {
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
-        const speechTexto = "¡Misión cumplida! Al aplicar el Efecto Zara y frenar la producción, evitaste que doscientos veinticuatro millones de pesos quedaran atrapados en la bodega. ¡Ese dinero ahora sirve para fabricar lo que sí está de moda! Punto 3, terminado.";
+        const speechTexto = "¡Misión cumplida! Presta mucha atención a esta lección: Un Costo Hundido es ese dinero que ya gastaste y no puedes recuperar, como los ciento cuarenta y cuatro millones en materiales. Un mal gerente habría fabricado los zapatos para no perder las telas, botando más dinero a la basura. Tú aplicaste el Efecto Zara, aceptaste la pérdida inevitable de la tela, pero salvaste ochenta millones en efectivo. ¡Esa es una decisión financiera brillante! Reto superado.";
         const speech = new SpeechSynthesisUtterance(speechTexto);
         speech.lang = 'es-ES';
         speech.pitch = 1.3;
@@ -76,24 +76,19 @@ const Punto3Debrief = ({ onBack, onRetry }: Punto3DebriefProps) => {
             <Sparkles className="h-4 w-4 text-amber-400" />
           </div>
 
-          <div className="mt-8 mb-8 bg-slate-900 border border-slate-700 rounded-xl p-6 shadow-2xl w-full max-w-4xl mx-auto">
-            <h3 className="text-center text-xl sm:text-2xl font-black text-white mb-6 uppercase tracking-widest border-b border-slate-700 pb-4">
-              ⚖️ BALANCE FINANCIERO DEL EFECTO ZARA
+          <div className="mt-8 bg-slate-900 border border-slate-700 rounded-xl p-6 shadow-2xl text-left w-full max-w-4xl mx-auto">
+            <h3 className="text-xl font-black text-amber-400 mb-4 uppercase tracking-widest">
+              💡 LECCIÓN GERENCIAL: EL COSTO HUNDIDO
             </h3>
-            <div className="flex flex-col md:flex-row gap-6 justify-center">
-              {/* TARJETA DE PÉRDIDA */}
-              <div className="flex-1 bg-red-950/30 border border-red-800/50 rounded-xl p-6 text-center transform transition hover:scale-105">
-                <p className="text-red-400 font-bold uppercase tracking-wide text-sm mb-2">💥 CUÁNTO PERDIÓ LA EMPRESA</p>
-                <p className="text-red-500 text-4xl sm:text-5xl font-black mb-2 font-mono">$ 144.000.000</p>
-                <p className="text-red-300/70 text-xs uppercase font-bold tracking-wider">Costo Hundido (Suelas y Tela)</p>
-              </div>
-              {/* TARJETA DE AHORRO */}
-              <div className="flex-1 bg-emerald-950/30 border border-emerald-500/50 rounded-xl p-6 text-center transform transition hover:scale-105 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-                <p className="text-emerald-400 font-bold uppercase tracking-wide text-sm mb-2">💰 CUÁNTO SALVÓ LA EMPRESA</p>
-                <p className="text-emerald-500 text-4xl sm:text-5xl font-black mb-2 font-mono drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]">$ 80.000.000</p>
-                <p className="text-emerald-300/70 text-xs uppercase font-bold tracking-wider">Efectivo Protegido (Nómina y Bodega)</p>
-              </div>
-            </div>
+            <p className="text-slate-300 text-lg leading-relaxed mb-4">
+              Es cierto que los <span className="font-bold text-red-400">$144.000.000</span> de los materiales ya se perdieron. En finanzas, esto se llama <span className="font-bold text-white bg-slate-800 px-2 py-1 rounded mx-1">Costo Hundido</span> (plata que ya salió y no se puede recuperar).
+            </p>
+            <p className="text-slate-300 text-lg leading-relaxed mb-4">
+              Un gerente novato diría: <em>"¡Terminemos de fabricar los tenis para no perder la tela!"</em>. ¡Esa es una pésima decisión!
+            </p>
+            <p className="text-slate-300 text-lg leading-relaxed">
+              Al aplicar el Efecto Zara y tener el valor de decir <strong>"¡PAREN TODO!"</strong>, asumiste la pérdida inicial de la tela, pero evitaste que la empresa botara <span className="font-bold text-emerald-400">$80.000.000</span> adicionales en efectivo pagando salarios y bodegas por unos tenis que ya nadie quiere comprar. ¡El verdadero gerente protege el flujo de caja a futuro!
+            </p>
           </div>
 
           <motion.div
