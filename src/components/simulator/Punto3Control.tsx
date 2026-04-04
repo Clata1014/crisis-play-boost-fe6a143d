@@ -198,7 +198,7 @@ const Punto3Control = ({ onSuccess, onBack }: Punto3ControlProps) => {
             type="text"
             value={input3}
             onChange={(e) => setInput3(e.target.value)}
-            placeholder="Ej: 800 * 50"
+            placeholder="Escribe tu fórmula aquí..."
             className="w-full bg-background border border-border p-3 rounded text-foreground font-mono focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
           />
           {renderFeedback(result3, 144000000,
