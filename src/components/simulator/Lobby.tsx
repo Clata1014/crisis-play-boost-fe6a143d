@@ -46,6 +46,9 @@ const Lobby = ({ onStart }: LobbyProps) => {
         <p className="font-orbitron text-sm font-bold tracking-widest text-muted-foreground">
           SIMULADOR DE CRISIS — POR MARIA CLARA TABARES
         </p>
+        <p className="font-orbitron text-[10px] font-bold tracking-[0.25em] text-primary/70 uppercase">
+          Tecnología en Producción Industrial 2026-1
+        </p>
 
         <motion.button
           initial={{ opacity: 0 }}
