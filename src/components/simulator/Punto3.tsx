@@ -11,7 +11,7 @@ interface Punto3Props {
 
 type P3Phase = "briefing" | "control" | "debrief";
 
-const Punto3 = ({ onBack }: Punto3Props) => {
+const Punto3 = ({ onBack, onNextLevel }: Punto3Props) => {
   const [phase, setPhase] = useState<P3Phase>("briefing");
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
