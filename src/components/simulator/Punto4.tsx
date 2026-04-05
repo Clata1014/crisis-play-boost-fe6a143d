@@ -1,18 +1,17 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Punto3Briefing from "./Punto3Briefing";
-import Punto3Control from "./Punto3Control";
-import Punto3Debrief from "./Punto3Debrief";
+import Punto4Briefing from "./Punto4Briefing";
+import Punto4Control from "./Punto4Control";
+import Punto4Debrief from "./Punto4Debrief";
 
-interface Punto3Props {
+interface Punto4Props {
   onBack: () => void;
-  onNextLevel?: () => void;
 }
 
-type P3Phase = "briefing" | "control" | "debrief";
+type P4Phase = "briefing" | "control" | "debrief";
 
-const Punto3 = ({ onBack, onNextLevel }: Punto3Props) => {
-  const [phase, setPhase] = useState<P3Phase>("briefing");
+const Punto4 = ({ onBack }: Punto4Props) => {
+  const [phase, setPhase] = useState<P4Phase>("briefing");
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
   const [input3, setInput3] = useState("");
@@ -23,13 +22,13 @@ const Punto3 = ({ onBack, onNextLevel }: Punto3Props) => {
     <div className="relative min-h-screen bg-background">
       <AnimatePresence mode="wait">
         {phase === "briefing" && (
-          <motion.div key="p3-briefing" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <Punto3Briefing onProceed={() => setPhase("control")} onBack={onBack} />
+          <motion.div key="p4-briefing" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <Punto4Briefing onProceed={() => setPhase("control")} onBack={onBack} />
           </motion.div>
         )}
         {phase === "control" && (
-          <motion.div key="p3-control" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <Punto3Control
+          <motion.div key="p4-control" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <Punto4Control
               onSuccess={() => setPhase("debrief")}
               onBack={onBack}
               inputs={{ input1, input2, input3, input4, input5 }}
@@ -38,8 +37,8 @@ const Punto3 = ({ onBack, onNextLevel }: Punto3Props) => {
           </motion.div>
         )}
         {phase === "debrief" && (
-          <motion.div key="p3-debrief" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <Punto3Debrief onRetry={() => setPhase("control")} onBack={onBack} onNextLevel={onNextLevel} />
+          <motion.div key="p4-debrief" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <Punto4Debrief onRetry={() => setPhase("control")} onBack={onBack} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -47,4 +46,4 @@ const Punto3 = ({ onBack, onNextLevel }: Punto3Props) => {
   );
 };
 
-export default Punto3;
+export default Punto4;
