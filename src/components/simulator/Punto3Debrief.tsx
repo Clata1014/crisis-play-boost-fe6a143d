@@ -9,7 +9,7 @@ interface Punto3DebriefProps {
   onNextLevel?: () => void;
 }
 
-const Punto3Debrief = ({ onBack, onRetry }: Punto3DebriefProps) => {
+const Punto3Debrief = ({ onBack, onRetry, onNextLevel }: Punto3DebriefProps) => {
   const [dimensions, setDimensions] = useState({ w: 800, h: 600 });
 
   useEffect(() => {
