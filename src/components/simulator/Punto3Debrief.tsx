@@ -98,43 +98,17 @@ const Punto3Debrief = ({ onBack, onRetry }: Punto3DebriefProps) => {
              </div>
            </div>
 
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="mt-5 rounded-lg border-2 border-crisis-green/50 bg-crisis-green/10 px-6 py-4"
-          >
-            <p className="font-orbitron text-xs text-crisis-green/80 uppercase tracking-wider">AHORRO TOTAL</p>
-            <p className="font-orbitron text-3xl font-black text-crisis-green md:text-4xl mt-1">
-              $ 224.000.000
-            </p>
-          </motion.div>
-
-          <div className="mx-auto mt-5 grid max-w-sm grid-cols-3 gap-3 font-mono text-xs">
-            <div className="rounded border border-border bg-card p-3 text-center">
-              <p className="text-muted-foreground">Materiales</p>
-              <p className="mt-1 text-base font-bold text-primary">$45.000</p>
+          <div className="flex flex-col md:flex-row gap-6 justify-center mb-8 mt-4 w-full max-w-4xl mx-auto">
+            <div className="flex-1 bg-red-950/30 border border-red-800/80 rounded-xl p-6 text-center">
+              <p className="text-red-400 text-sm font-black tracking-widest mb-2 uppercase">💥 Costo Hundido (Pérdida)</p>
+              <p className="text-red-500 text-4xl font-black font-mono">$ 144.000.000</p>
+              <p className="text-red-300/70 text-xs mt-2 uppercase font-bold tracking-wider">Dinero perdido en Telas</p>
             </div>
-            <div className="rounded border border-border bg-card p-3 text-center">
-              <p className="text-muted-foreground">Mano Obra</p>
-              <p className="mt-1 text-base font-bold text-primary">$15.000</p>
+            <div className="flex-1 bg-emerald-950/30 border border-emerald-500 rounded-xl p-6 text-center shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+              <p className="text-emerald-400 text-sm font-black tracking-widest mb-2 uppercase">💰 Efectivo Salvado</p>
+              <p className="text-emerald-400 text-4xl font-black font-mono drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]">$ 80.000.000</p>
+              <p className="text-emerald-300/70 text-xs mt-2 uppercase font-bold tracking-wider">Capital para Reinvertir</p>
             </div>
-            <div className="rounded border border-border bg-card p-3 text-center">
-              <p className="text-muted-foreground">Logística</p>
-              <p className="mt-1 text-base font-bold text-primary">$10.000</p>
-            </div>
-          </div>
-
-          <p className="mx-auto mt-5 max-w-lg font-mono text-sm leading-relaxed text-foreground">
-            <strong className="text-primary">$70.000</strong> × <strong className="text-primary">3.200 pares</strong> ={" "}
-            <strong className="text-crisis-green">$224.000.000</strong> que NO se perderán en la bodega.
-          </p>
-
-          <div className="mx-auto mt-4 max-w-lg rounded-lg border border-amber-500/30 bg-amber-950/20 p-4">
-            <p className="font-mono text-sm leading-relaxed text-foreground">
-              <strong className="text-amber-400">¿Qué pasa si fabricamos los tenis y nadie los compra?</strong>{" "}
-              Perdemos los $224 millones más el espacio de la bodega. El Efecto Zara no es solo saber matemáticas, es tener el <strong className="text-crisis-green">valor gerencial</strong> de decir <strong className="text-crisis-red">¡PAREN TODO!</strong> a tiempo. Ese dinero ahora puede usarse para comprar materiales color pastel.
-            </p>
           </div>
 
 
