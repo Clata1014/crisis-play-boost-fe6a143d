@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 interface Punto3DebriefProps {
   onBack: () => void;
   onRetry: () => void;
+  onNextLevel?: () => void;
 }
 
 const Punto3Debrief = ({ onBack, onRetry }: Punto3DebriefProps) => {
