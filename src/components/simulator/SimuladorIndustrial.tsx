@@ -6,10 +6,11 @@ import ControlPanel from "./ControlPanel";
 import Debriefing from "./Debriefing";
 import Punto2 from "./Punto2";
 import Punto3 from "./Punto3";
+import Punto4 from "./Punto4";
 
-type Phase = "lobby" | "briefing" | "control" | "debrief" | "punto2" | "punto3";
+type Phase = "lobby" | "briefing" | "control" | "debrief" | "punto2" | "punto3" | "punto4";
 
-const PHASE_ORDER: Phase[] = ["lobby", "briefing", "control", "debrief", "punto2", "punto3"];
+const PHASE_ORDER: Phase[] = ["lobby", "briefing", "control", "debrief", "punto2", "punto3", "punto4"];
 
 const SimuladorIndustrial = () => {
   const [phase, setPhase] = useState<Phase>("lobby");
