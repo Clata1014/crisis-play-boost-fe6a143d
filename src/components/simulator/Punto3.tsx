@@ -6,6 +6,7 @@ import Punto3Debrief from "./Punto3Debrief";
 
 interface Punto3Props {
   onBack: () => void;
+  onNextLevel?: () => void;
 }
 
 type P3Phase = "briefing" | "control" | "debrief";
