@@ -135,6 +135,24 @@ const Punto3Debrief = ({ onBack, onRetry, onNextLevel }: Punto3DebriefProps) => 
               <ArrowLeft className="h-4 w-4" /> VOLVER AL MENÚ
             </motion.button>
           </div>
+
+          {onNextLevel && (
+            <div className="mt-6 w-full flex justify-center">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ scale: [1, 1.03, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                onClick={() => {
+                  try { window.speechSynthesis.cancel(); } catch {}
+                  onNextLevel();
+                }}
+                className="w-full max-w-md rounded-xl bg-sky-500 px-8 py-5 font-orbitron text-base font-black text-background shadow-lg hover:scale-105 border border-sky-400 uppercase flex items-center justify-center shadow-[0_0_20px_rgba(56,189,248,0.5)]"
+              >
+                🚀 AVANZAR AL PUNTO 4
+              </motion.button>
+            </div>
+          )}
         </div>
       </motion.div>
     </div>
